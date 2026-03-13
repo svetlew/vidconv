@@ -247,8 +247,8 @@ function ConvertTo-Gif {
     Write-InfoLog "Step 3/3: Optimizing with gifsicle..."
     if (Get-Command gifsicle -ErrorAction SilentlyContinue) {
         $lossy = $script:GIF_LOSSY
-        Start-Process -FilePath "gifsicle" -ArgumentList "-O3 --lossy=$lossy -o `"$OutputPath`" `"$OutputPath`"" -NoNewWindow -Wait
-        if ($LASTEXITCODE -ne 0) { Write-WarnLog "gifsicle optimization failed (non-critical)." }
+        $proc = Start-Process -FilePath "gifsicle" -ArgumentList "-O3 --lossy=$lossy -o `"$OutputPath`" `"$OutputPath`"" -NoNewWindow -Wait -PassThru
+        if ($proc.ExitCode -ne 0) { Write-WarnLog "gifsicle optimization failed (non-critical)." }
     } else {
         Write-WarnLog "gifsicle not found -- skipping GIF optimization. Install it for smaller files."
     }
