@@ -7,13 +7,13 @@ Convert screen recordings to optimized **MP4**, **GIF**, **WebM**, or **MOV** wi
 **macOS**
 
 ```bash
-git clone https://github.com/svetlew/vidconv.git /tmp/vidconv && sudo mv /tmp/vidconv/vidconv.sh /usr/local/bin/vidconv && rm -rf /tmp/vidconv
+git clone git@github.com:svetlew/vidconv.git /tmp/vidconv && sudo mv /tmp/vidconv/vidconv.sh /usr/local/bin/vidconv && rm -rf /tmp/vidconv
 ```
 
 **Windows**
 
 ```powershell
-git clone https://github.com/svetlew/vidconv.git $env:TEMP\vidconv 2>$null; $sd = if (Test-Path $HOME\Scripts) { (Get-Item $HOME\Scripts).FullName } else { (New-Item -ItemType Directory -Path $HOME\Scripts).FullName }; Copy-Item $env:TEMP\vidconv\vidconv.ps1 "$sd\vidconv.ps1"; Remove-Item $env:TEMP\vidconv -Recurse -Force; if (!(Select-String -Path $PROFILE -Pattern 'vidconv' -Quiet -ErrorAction SilentlyContinue)) { Add-Content $PROFILE "Set-Alias vidconv `"$sd\vidconv.ps1`"" }; . $PROFILE
+git clone git@github.com:svetlew/vidconv.git $env:TEMP\vidconv 2>$null; $sd = if (Test-Path $HOME\Scripts) { (Get-Item $HOME\Scripts).FullName } else { (New-Item -ItemType Directory -Path $HOME\Scripts).FullName }; Copy-Item $env:TEMP\vidconv\vidconv.ps1 "$sd\vidconv.ps1"; Remove-Item $env:TEMP\vidconv -Recurse -Force; if (!(Select-String -Path $PROFILE -Pattern 'vidconv' -Quiet -ErrorAction SilentlyContinue)) { Add-Content $PROFILE "Set-Alias vidconv `"$sd\vidconv.ps1`"" }; . $PROFILE
 ```
 
 ## Usage
